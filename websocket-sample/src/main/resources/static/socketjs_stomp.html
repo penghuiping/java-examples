@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+	<script src="http://localhost:8080/stomp.js"></script>
+</head>
+<body>
+websocket
+<button  onclick="talk()">talk</button>
+<button  onclick="chat()">chat</button>
+
+</body>
+<script type="text/javascript">
+	// var sock = new SockJS('http://localhost:8080/websocket');
+ // sock.onopen = function() {
+ //     console.log('open');
+ //     sock.send('test');
+ // };
+ //
+ // sock.onmessage = function(e) {
+ //     console.log('message', e.data);
+ //     sock.close();
+ // };
+ //
+ // sock.onclose = function() {
+ //     console.log('close');
+ // };
+
+	function talk() {
+		stompClient.send("/app/talk",{},"test");
+	}
+
+	function chat() {
+		stompClient.send("/app/chat",{},"test_chat");
+	}
+
+	var socket = new SockJS('/ws_msg');
+	var stompClient = Stomp.over(socket);
+	var sessionId = "";
+
+	stompClient.connect({}, function (frame) {
+		var url = stompClient.ws._transport.url;
+		console.log("url:"+url)
+		url = url.replace(
+				"ws://localhost:8080/ws_msg/",  "");
+		url = url.replace("/websocket", "");
+		url = url.replace(/^[0-9]+\//, "");
+		console.log("Your current session is: " + url);
+		sessionId = url;
+
+		stompClient.subscribe("/user/queue/reply", function(message) {
+			alert("Message " + message.body);
+		});
+
+		stompClient.subscribe("/topic/reply", function(message) {
+			alert("Message " + message.body);
+		});
+	});
+
+
+
+
+</script>
+</html>
