@@ -40,5 +40,4 @@ public class WebsocketConfiguration implements WebSocketConfigurer {
         container.setMaxBinaryMessageBufferSize(8192);
         return container;
     }
-
 }

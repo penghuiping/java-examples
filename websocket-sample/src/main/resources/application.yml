@@ -1,0 +1,23 @@
+###############################################
+## common配置
+###############################################
+spring:
+  profiles:
+    active: dev
+  application:
+    name: app
+  main:
+    allow-bean-definition-overriding: true
+  mvc:
+    static-path-pattern: /static/*
+  webflux:
+    static-path-pattern: /static/*
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+
+
+
+

@@ -1,0 +1,33 @@
+########################################################
+###common
+########################################################
+app:
+  rabbitmq:
+    ip: localhost
+    port: 5672
+    username:  guset
+    password:  guest
+    virtualHost: /
+########################################################
+### LOG
+########################################################
+logging:
+  file: logs/websocket-sample.log
+  level:
+    root: INFO
+    org.springframework.web: INFO
+spring:
+  rabbitmq:
+    addresses: ${app.rabbitmq.ip}
+    port: ${app.rabbitmq.port}
+    username: ${app.rabbitmq.username}
+    password: ${app.rabbitmq.password}
+    virtual-host: ${app.rabbitmq.virtualHost}
+
+
+
+
+
+
+
+
