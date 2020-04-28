@@ -10,7 +10,7 @@
 
     <parent>
         <groupId>com.php25</groupId>
-        <artifactId>examples</artifactId>
+        <artifactId>java-examples</artifactId>
         <version>2.2.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
@@ -32,6 +32,7 @@
         <hikari.version>3.3.1</hikari.version>
         <bouncycastle.version>1.60</bouncycastle.version>
         <hibernate-validator>6.0.17.Final</hibernate-validator>
+        <java-uuid-generator>3.2.0</java-uuid-generator>
         <oracle>11.2.0.3</oracle>
         <spring-cloud-dependencies>Hoxton.RELEASE</spring-cloud-dependencies>
         <testcontainer>1.12.2</testcontainer>
