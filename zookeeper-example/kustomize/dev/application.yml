@@ -1,0 +1,17 @@
+###############################################
+## common配置
+###############################################
+spring:
+  application:
+    name: zookeeper-example
+  main:
+    allow-bean-definition-overriding: true
+  mvc:
+    static-path-pattern: /static/*
+  webflux:
+    static-path-pattern: /static/*
+server:
+  port: 8080
+
+
+

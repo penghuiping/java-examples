@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: zookeeper-example
+  name: zookeeper-example
+spec:
+  selector:
+    matchLabels:
+      app: zookeeper-example
+  template:
+    spec:
+      volumes:
+        - name: zookeeper-example-config
+          configMap:
+            name: zookeeper-example-config-map
+      containers:
+        - name:  zookeeper-example
+          args:
+            - --spring.config.location=/etc/config/application.yml
+          volumeMounts:
+            - mountPath: /etc/config
+              name: zookeeper-example-config

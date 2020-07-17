@@ -1,0 +1,45 @@
+###############################################
+## common配置
+###############################################
+spring:
+  application:
+    name: zookeeper-sample
+  main:
+    allow-bean-definition-overriding: true
+  mvc:
+    static-path-pattern: /static/*
+  webflux:
+    static-path-pattern: /static/*
+  ########################################################
+  ### spring cloud stream
+  ########################################################
+  kafka:
+    bootstrap-servers: localhost:9092
+  cloud:
+    stream:
+      bindings:
+        input:
+          group: zookeeper-example
+          destination: data-exchange
+          contentType: application/json
+          consumer:
+            max-attempts: 3
+            backOffInitialInterval: 2000
+            backOffMaxInterval: 10000
+            backOffMultiplier: 2
+        output:
+          destination: data-exchange
+          contentType: application/json
+      ## 下面配置的是kafka的专用属性,用于设置dlq
+      kafka:
+        bindings:
+          input:
+            consumer:
+              enableDlq: true
+              dlqName: zookeeper-example-error
+              dlqPartitions: 1
+server:
+  port: 8080
+
+
+

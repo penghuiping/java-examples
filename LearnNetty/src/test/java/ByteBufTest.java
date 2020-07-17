@@ -1,12 +1,9 @@
-import com.php25.learnnetty.sxsrvm.ASocketClient;
-import com.php25.learnnetty.sxsrvm.ResponseFuture;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.CompositeByteBuf;
 import io.netty.buffer.Unpooled;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
-import java.util.concurrent.TimeUnit;
 
 /**
  * @Auther: penghuiping

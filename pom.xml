@@ -10,10 +10,13 @@
 
     <modules>
         <module>common-parent</module>
-        <module>mongo-sample</module>
         <module>workflow-sample</module>
+        <module>mongo-example</module>
         <module>websocket-sample</module>
         <module>LearnNetty</module>
+        <module>zookeeper-example</module>
+        <module>kafka-example</module>
+        <module>javafx-example</module>
     </modules>
 
     <packaging>pom</packaging>
